@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Connexion</title>
+    <style>
+        * {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body class="font-['Inter'] h-[100vh] w-[100wh] bg-[#CCC9DC]">
+    <header class="h-[10vh]">
+        <div class="h-full w-fit flex items-center pl-[16px] py-[4px]">
+            <img class="h-[80%]" src="../media/logo_black.png" alt="logo YCD Bank">
+            <p class="font-medium text-lg  h-fit">YCD Bank</p>
+        </div>
+    </header>
+    <main class="bg-[#CCC9DC] h-[90vh] flex flex-col items-center box-sizing pt-[10%]">
+        <h2 class="font-bold text-[24px] text-center pb-[10%]">Bienvenue</h2>
+        <div class="flex flex-col h-full pb-[10%]">
+            <div class="flex flex-col h-[40%] rounded-[30px] bg-[url('../media/background.jpeg')] bg-cover bg-center w-[80%]">
+                <h3 class="font-medium text-[18px] text-center">Connexion</h3>
+                <form>
+                    <input class="placeholder-black font-normal text-[16px] pl-[16px] py-[8px] rounded-[30px] bg-white" type="number" name="identifiant" id="identifiant" placeholder="Identifiant">
+                    <input class="placeholder-black font-normal text-[16px] pl-[16px] py-[8px] rounded-[30px] bg-white" type="password" name="password" id="password" placeholder="Mot de passe">
+                </form>
+                <p>Mot de passe oublié</p>
+            </div>
+            <button class="font-medium text-[18px] text-white bg-[#324A5F] py-[16px] w-[80%] rounded-[30px] mb-[10%]">S'identifier</button>
+        </div>
+    </main>
+</body>
+</html>
