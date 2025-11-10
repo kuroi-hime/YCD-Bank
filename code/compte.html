@@ -9,20 +9,52 @@
 </head>
 <body>
     <header >
-        <div class="flex justify-between relative items-center">
-        <div id="Hamburger-menu" class="relative ">
-            <button id="menu-btn" class="md:hidden ml-4">
-            <i id="menu-icon" class="fa-solid fa-bars "></i>
-            </button>
+
+        <div class="flex justify-between items-center relative ">
+             <div id="Hamburger-menu" >
+                <button id="menu-btn" class="md:hidden ml-4">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+
+        <div id="menu" class="absolute border-2 border-[#324A5F] mt-2 flex flex-col justify-around bg-gray-100 p-3 rounded-3xl shadow-md transform scale-y-0 origin-top transition-transform duration-300 ease-out h-[300%] w-[40%]">
+            
+            <!--Menu elements-->
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-money-bill text-blue-600"></i>
+            <a href="#paiements" class="py-2 hover:text-green-600">Paiements</a>
+            </div>
+
+            <div class="flex gap-2 items-center " >
+            <i class="fa-solid fa-money-bill-transfer text-green-600"></i>
+            <a href="#virement" class="py-2 hover:text-green-600">Virement</a>
+            </div>
+
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-clock-rotate-left text-orange-500"></i>
+            <a href="#historique" class="py-2 hover:text-green-600">Historique</a>
+            </div>
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-credit-card fa-2xs text-purple-500"></i>
+            <a href="#virements" class="py-2 hover:text-green-600">Mes cartes</a>
+            </div>
+         </div>
         </div>
+
         <div class="flex items-center p-3">
             <img src="../media/ycdbanklogo-noBG.png" style="width: 59px; height: 50px;">
             <h2 class="font-medium" style="font-size:18px;">YCD Bank</h2>
         </div>
+
         <div class="flex  gap-4 mr-4">
         <i class="fa-regular fa-bell fa-lg"></i>
         <i class="fa-regular fa-circle-user fa-lg"></i>
         </div>
+        
+        </div>
+
     </header>
     <body>
         <main>
@@ -49,20 +81,24 @@
     <div class="flex justify-around">
     <div class="flex flex-col gap-2">
         <h2 class="font-bold" style="font-size: 16px;">Mes comptes</h2>
-        <p>Compte Principale</p>
-        <p>4210 9834 7612 5098 3476 1209</p>
+        <p id="typecompte">Compte Principale</p>
+        <p id="RIB">4210 9834 7612 5098 3476 1209</p>
     </div>
 
     
     <div class="flex flex-col justify-around items-center h-24">
         <div class="flex gap-2 ml-20">
-        <i class="fa-solid fa-circle fa-2xs" style=" color:#05B013;"></i>
-        <i class="fa-solid fa-circle fa-2xs" style="color:#CCC9DC"></i>
+        <button >
+        <i class="fa-solid fa-circle fa-2xs text-[#05B013]" id="button-cp"></i>
+        </button>
+        <button >
+        <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]" id="button-ce"></i>
+        </button>
          </div>
         <div class="flex flex-col items-center ">
-        <p>7000 MAD</p>
+        <p id="amount">7000 MAD</p>
         <button>
-            <i class="fa-regular fa-eye"></i>
+            <i id="hide/show" class="fa-regular fa-eye"></i>
         </button>
         </div>
     </div>
@@ -81,20 +117,20 @@
             </div>
             <div class="card bg-[#0C1821] rounded-3xl" style="width:101px; height:95px">
                 <div class="flex flex-col items-center justify-center">
-                <i class="fa-solid fa-money-check-dollar fa-2x" style="font-size: 48px; color:white"></i>
+                <i class="fa-solid fa-receipt fa-2x" style="font-size: 48px; color:white"></i>
                 <p class="text-white">Factures</p>
                 </div>
             </div>
             <div class="card bg-[#0C1821] rounded-3xl" style="width:101px; height:95px">
                 <div class="flex flex-col items-center justify-center">
                 <i class="fa-solid fa-money-check-dollar fa-2x" style="font-size: 48px; color:white"></i>
-                <p class="text-white">Vire</p>
+                <p class="text-white">Virement</p>
                 </div>
             </div>
             <div class="card bg-[#0C1821] rounded-3xl" style="width:101px; height:95px">
                 <div class="flex flex-col items-center justify-center">
                 <i class="fa-solid fa-money-check-dollar fa-2x" style="font-size: 48px; color:white"></i>
-                <p class="text-white">paiments</p>
+                <p class="text-white">Recharges</p>
                 </div>
             </div>
         </div>
@@ -107,9 +143,9 @@
     <div class="flex justify-between gap-2">
         <h2 class="font-bold mb-5" style="font-size: 16px;">Dernier Operations</h2>
         <div>
-            <i class="fa-solid fa-circle fa-2xs" style="color:#05B013;"></i>
-            <i class="fa-solid fa-circle fa-2xs" style="color:#CCC9DC"></i>
-            <i class="fa-solid fa-circle fa-2xs" style="color:#CCC9DC"></i>
+            <i class="fa-solid fa-circle fa-2xs text-[#05B013]" id="btn-transaction1"></i>
+            <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]" id="btn-transaction2"></i>
+            <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]" id="btn-transaction3"></i>
         </div>
 
     </div>
@@ -136,6 +172,8 @@
     </section>
 
         </main>
+    
+    <script src="js/compte.js"></script>
 
     </body>
     

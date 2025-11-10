@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Mes cartes</title>
+</head>
+<body class="bg-gray-100">
+  
+  <header>
+    <div class="flex justify-between items-center p-3">
+      
+      <div id="Hamburger-menu">
+        <button id="menu-btn" class="md:hidden ml-4">
+          <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      
+      <div class="flex items-center gap-2">
+        <img src="../media/ycdbanklogo-noBG.png" class="w-[59px] h-[50px]" alt="YCD Bank Logo" />
+        <h2 class="font-medium text-[18px]">YCD Bank</h2>
+      </div>
+      
+      <div class="flex gap-4 mr-4">
+        <i class="fa-regular fa-bell fa-lg"></i>
+        <i class="fa-regular fa-circle-user fa-lg"></i>
+      </div>
+    </div>
+  </header>
+
+  <main class="p-6">
+    <h1 class="text-2xl font-bold mb-6">Mes cartes</h1>
+
+    
+    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex items-center gap-6">
+      
+      <div class="relative w-64 h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
+        
+        <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
+        
+        <div class="absolute top-4 right-4 px-2 py-1 bg-white rounded text-blue-600 text-[10px] font-semibold uppercase tracking-wider">
+          Visa
+        </div>
+        
+        <div class="absolute bottom-14 left-5 text-white font-medium tracking-widest">
+          **** **** **** 1234
+        </div>
+       
+        <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
+          <span>Halima Hamada</span>
+          <span>12/27</span>
+        </div>
+      </div>
+
+    
+      <div class="flex justify-between items-center w-full">
+        <div class="flex flex-col gap-1">
+          <h2 class="font-bold text-[16px]">Carte Visa Classic</h2>
+          <p>Solde : 12,500 MAD</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <button class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+            Voir détails
+          </button>
+          <button class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+            Bloquer
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex items-center gap-6">
+
+      <div class="relative w-64 h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700">
+        
+        <div class="absolute top-6 right-6 flex items-center">
+          <div class="w-8 h-8 rounded-full bg-red-500"></div>
+          <div class="w-8 h-8 -ml-3 rounded-full bg-yellow-400"></div>
+        </div>
+        
+        <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
+    
+        <div class="absolute top-4 right-4 px-2 py-1 bg-white rounded text-gray-700 text-[10px] font-semibold uppercase tracking-wider">
+          Mastercard
+        </div>
+        
+        <div class="absolute bottom-14 left-5 text-white font-medium tracking-widest">
+          **** **** **** 5678
+        </div>
+        
+        <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
+          <span>Compte Principale</span>
+          <span>08/26</span>
+        </div>
+      </div>
+
+      <div class="flex justify-between items-center w-full">
+        <div class="flex flex-col gap-1">
+          <h2 class="font-bold text-[16px]">Carte Mastercard Gold</h2>
+          <p>Solde : 25,000 MAD</p>
+        </div>
+        <div class="flex flex-col items-center gap-2">
+          <button class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+            Voir détails
+          </button>
+          <button class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+            Bloquer
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+  </main>
+</body>
+</html>
