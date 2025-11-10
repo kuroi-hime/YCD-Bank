@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <title>Virement</title>
+</head>
+<body class="bg-gray-100">
+  <!-- Header -->
+  <header>
+    <div class="flex justify-between items-center p-3">
+      <!-- Hamburger -->
+      <div id="Hamburger-menu">
+        <button id="menu-btn" class="md:hidden ml-4">
+          <i id="menu-icon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+      <!-- Logo -->
+      <div class="flex items-center gap-2">
+        <img src="../media/ycdbanklogo-noBG.png" class="w-[59px] h-[50px]" alt="YCD Bank Logo" />
+        <h2 class="font-medium text-[18px]">YCD Bank</h2>
+      </div>
+      <!-- Icons -->
+      <div class="flex gap-4 mr-4">
+        <i class="fa-regular fa-bell fa-lg"></i>
+        <i class="fa-regular fa-circle-user fa-lg"></i>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Account to Debit -->
+    <section class="account-information h-[118px] mt-[40px]">
+      <div class="flex justify-around">
+        <div class="flex flex-col gap-2">
+          <h2 class="font-bold text-[16px]">Compte à Débiter</h2>
+          <p>Compte Principale</p>
+          <p>4210 9834 7612 5098 3476 1209</p>
+        </div>
+        <div class="flex flex-col justify-around items-center h-24">
+          <div class="flex gap-2 ml-20">
+            <i class="fa-solid fa-circle fa-2xs text-[#05B013]"></i>
+            <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+          </div>
+          <div class="flex flex-col items-center">
+            <p>7000 MAD</p>
+            <button aria-label="Toggle visibility">
+              <i class="fa-regular fa-eye"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Arrow -->
+    <div class="flex justify-center items-center">
+      <span class="text-5xl drop-shadow-[0_6px_6px_#05B013]">↓</span>
+    </div>
+
+    <!-- Account to Credit -->
+    <section class="account-information h-[118px] mt-[40px]">
+      <div class="flex justify-between items-start">
+        <div class="flex flex-col ml-20 gap-2">
+          <h2 class="font-bold text-[16px]">Compte à Créditer</h2>
+          <p>Halima Hamada</p>
+          <p>5210 1834 7612 8098 7476 8209</p>
+        </div>
+        <div class="flex gap-2 mr-20 mt-1">
+          <i class="fa-solid fa-circle fa-2xs text-[#05B013]"></i>
+          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+        </div>
+      </div>
+    </section>
+
+    <!-- Transaction Form -->
+    <section class="transaction-information flex justify-center items-center">
+      <div class="grid grid-cols-2 gap-y-4 gap-x-6 rounded-3xl bg-[#324A5F] p-6 mt-3 w-[80%]">
+        <label for="montant" class="text-white self-center">Montant :</label>
+        <input id="montant" type="number" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
+
+        <label for="motif" class="text-white self-center">Motif :</label>
+        <input id="motif" type="text" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
+
+        <label for="password" class="text-white self-center">Mot de passe :</label>
+        <input id="password" type="password" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
+      </div>
+    </section>
+
+    <!-- Submit Button -->
+    <div class="flex items-center justify-center mt-4">
+      <button class="rounded-3xl bg-[#324A5F] px-4 py-2 w-[70%] drop-shadow-[0_4px_6px_black]">
+        <span class="text-white text-[18px]">Valider</span>
+      </button>
+    </div>
+  </main>
+</body>
+</html>
