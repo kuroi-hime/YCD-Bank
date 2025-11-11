@@ -81,5 +81,5 @@ deconnectbtn.addEventListener("click",function(){
     deconnecticon.classList.remove("fa-toggle-on" , "text-green-600");
     deconnecticon.classList.add("fa-toggle-off" , "text-red-600");
 
-    window.location.href = "co.html"; 
+    window.location.href = "connexion.html"; 
 })
