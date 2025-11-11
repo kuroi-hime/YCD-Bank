@@ -1,4 +1,4 @@
-let prenom, nom, mail, pays, ville, quartier, data;
+let prenom, nom, mail, telephone, civilite, adresse, data;
 let suivantButton = document.querySelector('button');
 
 function getPrenom(){
@@ -28,22 +28,23 @@ function getMail(){
     return data.value;
 }
 
-function getPays(){
-    let data = document.getElementById('pays');
+function getTelephone(){
+    let data = document.getElementById('telephone');
     if(!data) throw new Error('inexistant');
     if(data.value=='') throw new Error('vide');
+    // let re = /[0-9]{10}/
+    // if(!re.test(data.value)) console.log(data.value + 'num invalide')
     return data.value;
 }
 
-function getVille(){
-    let data = document.getElementById('ville');
+function getCivilite(){
+    let data = document.getElementById('civilite');
     if(!data) throw new Error('inexistant');
-    if(data.value=='') throw new Error('vide');
     return data.value;
 }
 
-function getQuartier(){
-    let data = document.getElementById('quartier');
+function getAdresse(){
+    let data = document.getElementById('adresse');
     if(!data) throw new Error('inexistant');
     if(data.value=='') throw new Error('vide');
     return data.value;
@@ -53,27 +54,25 @@ function getForm() {
     prenom = getPrenom();
     nom = getNom();
     mail = getMail();
-    pays = getPays();
-    ville = getVille();
-    quartier = getQuartier();
+    telephone = getTelephone();
+    civilite = getCivilite();
+    adresse = getAdresse();
 
-    return {prenom:prenom, nom:nom, mail:mail, pays:pays, ville:ville, quartier:quartier};
+    return {prenom:prenom, nom:nom, mail:mail, telephone:telephone, civilite:civilite, adresse:adresse};
 }
 
-try{
-    suivantButton.addEventListener("click", () => {
-        // let bankData = localStorage.getItem('YCD_Bank');
-        // if(!bankData) throw new Error('Clé inéxistante');
-        // localStorage.setItem('YCD_Bank', JSON.stringify([]))
+suivantButton.addEventListener("click", () => {
+    
+    try{
+        // document.querySelector('iframe').sandbox = 'allow-modals'
         sessionStorage.setItem('inscriptionData', JSON.stringify(getForm()));
         let a = document.createElement('a');
         a.href = 'confirmation.html';
         a.click();
-    });
-    
-}catch(erreur){
-    console.log(erreur.message);
-    // if(erreur.message == 'vide')
-    //     console.log
-    alert('Veuillez remplir tous les champs');
-};
+    }catch(erreur){
+        if(erreur.message == 'vide')
+            alert('veuillez remplir tous les champs');
+        else
+            console.log(erreur.message);
+    }
+});
