@@ -54,4 +54,15 @@ for (let i = 1; i < 4; i++) {
   });
 }
 
-const hidebtn=docu
+const hidebtn=document.getElementById("hideshow");
+const eyeicon=document.getElementById("eye");
+const amount=document.getElementById("amount")
+hidebtn.addEventListener("click",function(){
+    if(eyeicon.classList.contains("fa-regular")){
+      eyeicon.className=("fa-solid fa-eye-slash");
+      amount.textContent="*****";
+    }
+    else{
+      eyeicon.className=("fa-regular fa-eye");
+      amount.textContent="7000 MAD";}
+})
