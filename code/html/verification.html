@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <title>Vérification</title>
+</head>
+<body class="font-['Inter'] h-[100vh] w-[100wh] bg-[#CCC9DC] flex flex-col gap-[5%]">
+    <header class="h-[10%]">
+        <div class="h-full w-fit flex items-center pl-[16px] py-[4px]">
+            <img class="h-[80%]" src="../../media/logo_black.png" alt="logo YCD Bank">
+            <p class="font-medium text-lg  h-fit">YCD Bank</p>
+        </div>
+    </header>
+    <main class="bg-[#CCC9DC] h-[90%] flex flex-col gap-[10%] items-center box-sizing">
+        <div class="flex flex-col justify-between h-full pb-[5%] items-center w-[90%]">
+            <div class="drop-shadow-lg/50 flex flex-col items-center gap-[32px] h-[80%] rounded-[30px] bg-[url('../../media/background.jpeg')] bg-cover bg-center w-[80%]">
+                <h3 class="font-medium text-[18px] text-center mt-[16px]">Vérification par mail</h3>
+                <div class="flex flex-col gap-3 items-center w-full px-[24px]">
+                    <p class="text-center">Veuillez entrer les cinq chiffres envoyés à votre mail</p>
+                    <p>Code:</p>
+                    <form>
+                        <input class="h-[30px] w-[30px] border-2 rounded-[5px] text-center" maxlength="1" type="text" title="chiffre" name="chiffre1" id="chiffre1">
+                        <input class="h-[30px] w-[30px] border-2 rounded-[5px] text-center" maxlength="1" type="text" title="chiffre" name="chiffre2" id="chiffre2">
+                        <input class="h-[30px] w-[30px] border-2 rounded-[5px] text-center" maxlength="1" type="text" title="chiffre" name="chiffre3" id="chiffre3">
+                        <input class="h-[30px] w-[30px] border-2 rounded-[5px] text-center" maxlength="1" type="text" title="chiffre" name="chiffre4" id="chiffre4">
+                        <input class="h-[30px] w-[30px] border-2 rounded-[5px] text-center" maxlength="1" type="text" title="chiffre" name="chiffre5" id="chiffre5">
+                    </form>
+                </div>
+                <p class="border-b text-[14px]" id="renvoyerCode">Renvoyer le code</p>
+            </div>
+            <button class="inset-shadow-sm/50 font-medium text-[18px] text-white bg-[#324A5F] py-[16px] w-[80%] rounded-[30px]">Ouvrir un compte</button>
+        </div>
+    </main>
+    <script src="../js/verification.js"></script>
+</body>
+</html>
