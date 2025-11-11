@@ -33,22 +33,15 @@ function genererRIB(){
 document.querySelector('button').addEventListener('click',()=>{
     let data = JSON.parse(sessionStorage.getItem('inscriptionData'));
     
-    try{
-        let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
-        if(!bankData) throw new Error('Clé inéxistante');
-        data.id = bankData.length;
-        data.creditCompteP = 10000;
+    let bankData = JSON.parse(localStorage.getItem('YCD_Bank'))||[];
+    // if(!bankData) throw new Error('Clé inéxistante');
+    data.id = bankData.length;
+    data.comptes = [{rib: genererRIB(), type: "Principale"}, {rib: genererRIB(), type: "Epargne"}];
 
-        data.RIB_principal = genererRIB();
-        data.RIB_eparge = genererRIB();
-        bankData.push(data)
-        localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
-    
-    }catch(erreur){
-        bankData = [];
-        data.id = bankData.length;
-        data.credit = 10000;
-        bankData.push(data)
-        localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
-    }
+    bankData.push(data);
+    localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
+    sessionStorage.clear();
+    let a = document.createElement('a');
+    a.href = "../html/connexion.html";
+    a.click();
 });

@@ -67,7 +67,7 @@ suivantButton.addEventListener("click", () => {
         // document.querySelector('iframe').sandbox = 'allow-modals'
         sessionStorage.setItem('inscriptionData', JSON.stringify(getForm()));
         let a = document.createElement('a');
-        a.href = 'confirmation.html';
+        a.href = '../html/confirmation.html';
         a.click();
     }catch(erreur){
         if(erreur.message == 'vide')
