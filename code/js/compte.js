@@ -66,3 +66,20 @@ hidebtn.addEventListener("click",function(){
       eyeicon.className=("fa-regular fa-eye");
       amount.textContent="7000 MAD";}
 })
+
+const deconnect=document.getElementById("DECONNECT");
+const usercirclebtn=document.getElementById("user-circle-btn");
+
+    usercirclebtn.addEventListener("click",function(){
+    deconnect.classList.toggle("scale-y-100");
+})
+
+const deconnectbtn=document.getElementById("DECONNECT-btn");
+const deconnecticon=document.getElementById("deconnect-icon");
+
+deconnectbtn.addEventListener("click",function(){
+    deconnecticon.classList.remove("fa-toggle-on" , "text-green-600");
+    deconnecticon.classList.add("fa-toggle-off" , "text-red-600");
+
+    window.location.href = "co.html"; 
+})
