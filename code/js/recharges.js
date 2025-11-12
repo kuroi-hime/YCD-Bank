@@ -6,7 +6,7 @@ const service = document.getElementById('service');
 const offres = document.getElementById('offres');
 const numLigne = document.getElementById('numero');
 const selectmontant = document.getElementById('montant');
-
+const recharges = [];
 const alertFaild = document.getElementById('alertFaild');
 
 operateur.addEventListener('change', ()=>{
@@ -20,19 +20,57 @@ favoris.addEventListener('click', ()=>{
         libelle.classList.add('hidden');
 });
 
+fetch('../../media/recharges.json')
+.then(res => res.json())
+.then(montants => {
+    montants.montant.forEach(recharge => {
+        recharges.push(recharge);
+    });
+});
 
-// a revoir
+function getOperateur(){
+    return operateur.value;
+}
+
+function getService(){
+    if(service.value == 'none') throw new Error('vide');
+
+    return service.value;
+}
+
+function getNum(){
+    if(numLigne.value == '') throw new Error('vide');
+
+    return numLigne.value;
+}
+
 function getMontant(){
     if(selectmontant.value == 'none') throw new Error('vide');
+
     return parseFloat(selectmontant.value);
 }
 
-ref.addEventListener('change', ()=>{
+service.addEventListener('change', ()=>{
     selectmontant.innerHTML = '<option value="none" disabled selected>Montant</option>';
+    if(service.value == 'telecom'){
+            recharges.forEach(prix => {
+                let opt = document.createElement('option');
+                opt.innerText = `${prix} dh`;
+                selectmontant.appendChild(opt);
+            });
+        }else{
+            let montant = document.createElement('option'); 
+            montant.innerText = `${((Math.random()*19 + 2)*10).toFixed(2)} dh`; //parseFloat(); tofixed => string
+            selectmontant.appendChild(montant);
+        }
+});
+
+numLigne.addEventListener('blur', ()=>{
     if(numLigne.value != ''){
-        let montant = document.createElement('option'); 
-        montant.innerText = ((Math.random()*19 + 2)*10).toFixed(2); //parseFloat(); tofixed => string
-        selectmontant.appendChild(montant);
+        selectmontant.removeAttribute('disabled');
+    }
+    else{
+        selectmontant.setAttribute('disabled', 'disabled');
     }
 });
 
@@ -43,27 +81,29 @@ function getLibelle(){
 }
 
 function getForm(){
-    let facture = getFournisseur();
-    facture.ref = getFacture();
-    facture.montant = getMontant();
-    facture.status = '';
+    let recharge = {};
+    recharge.operateur = getOperateur();
+    recharge.type = getService();
+    recharge.numero = getNum();
+    recharge.montant = getMontant();
+    recharge.status = '';
     if(favoris.checked){
-        facture.libelle = getLibelle();
-        facture.status = 'favoris';
+        recharge.libelle = getLibelle();
+        recharge.status = 'favoris';
     }
 
-    return facture;
+    return recharge;
 }
 
 document.querySelector('button').addEventListener('click', ()=>{
     try {
         let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        // let facture = getForm();
-        // bankData[currentUser.index].factures.push(facture);
-        // if(bankData[currentUser.index].comptes[0].credit < facture.montant) throw new Error('solde insufisant');
-        // bankData[currentUser.index].comptes[0].credit -= facture.montant;
-        // localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
+        let recharge = getForm();
+        bankData[currentUser.index].recharges.push(recharge);
+        if(bankData[currentUser.index].comptes[0].credit < recharge.montant) throw new Error('solde insufisant');
+        bankData[currentUser.index].comptes[0].credit -= recharge.montant;
+        localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
         const alertBox = document.getElementById("alertSuccess");
         alertBox.classList.remove("hidden");
 

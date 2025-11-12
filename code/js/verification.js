@@ -36,6 +36,8 @@ document.querySelector('button').addEventListener('click',()=>{
     let bankData = JSON.parse(localStorage.getItem('YCD_Bank'))||[];
     data.comptes = [{rib: genererRIB(), type: "Principal", credit: 10000}, {rib: genererRIB(), type: "Epargne", credit: 0}];
     data.factures = [];
+    data.recharges = [];
+    data.virements = [];
 
     bankData.push(data);
     localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
