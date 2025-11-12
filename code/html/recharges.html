@@ -9,12 +9,13 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     </head>
+
     <body class="font-['Inter'] h-[100vh] w-[100wh] flex flex-col gap-[3%]">
         <header class="h-[10%] flex justify-between items-center px-[5%]">
             <svg class="h-[50%]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
             
             <div class="h-full w-fit flex items-center py-[4px]">
-                <img class="h-[80%]" src="../media/logo_black.png" alt="logo YCD Bank">
+                <img class="h-[80%]" src="../../media/logo_black.png" alt="logo YCD Bank">
                 <p class="font-medium text-lg  h-fit">YCD Bank</p>
             </div>
 
@@ -28,8 +29,8 @@
             <div class="w-[80%] h-full bg-[#324A5F] rounded-3xl flex flex-col items-center pt-[16px] gap-[72px]">
                 <h3 class="font-medium text-[22.13px] text-[#CCC9DC]">Recharges</h3>
                 <form class="flex flex-col w-full items-center justify-center gap-[24px]">
-                    <div class="flex w-[90%] h-[50px] items-center bg-[#CCC9DC] px-[2%] rounded-[10px]">
-                        <img class="h-full" src="../media/inwi-log.png" alt="logo operateur choisi">
+                    <div class="flex gap-[1vw] w-[90%] h-[50px] items-center bg-[#CCC9DC] px-[2%] rounded-[10px]">
+                        <img class="h-[90%]" src="../../media/inwi_logo.png" alt="logo operateur choisi" id="operateur_logo">
                         <select class="w-full h-fit p-2 border rounded" name="operateur" id="operateur">
                             <option value="inwi">inwi</option>
                             <option value="orange">orange</option>
@@ -57,11 +58,17 @@
                     <input class="hidden w-[90%] text-[#CCC9DC] p-2 border-2 border-[#CCC9DC] rounded-[10px]" type="text" name="libelle" id="libelle" placeholder="Libellé">
                     <div class="flex gap-[8px]">
                         <p class="text-[#CCC9DC]">Ajouter au favoris</p>
-                        <input type="radio" name="favoris" id="favoris">
+                        <input type="checkbox" name="favoris" id="favoris">
                     </div>
                 </form>
             </div>
             <button class="inset-shadow-sm/50 font-medium text-[18px] text-white bg-[#324A5F] py-[16px] my-[16px] w-[80%] rounded-[30px]" name="favorite" type="button">Valider</button>
         </main>
+        <div id="alertSuccess" class="fixed top-4 right-4 bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded shadow-md hidden">
+            Recharge effectuée avec succès !
+        </div>
+        <div id="alertFaild" class="fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-md hidden"></div>
+        
+        <script src="../js/recharges.js"></script>
     </body>
 </html>
