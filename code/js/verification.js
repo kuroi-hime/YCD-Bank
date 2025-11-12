@@ -34,9 +34,8 @@ document.querySelector('button').addEventListener('click',()=>{
     let data = JSON.parse(sessionStorage.getItem('inscriptionData'));
     
     let bankData = JSON.parse(localStorage.getItem('YCD_Bank'))||[];
-    // if(!bankData) throw new Error('Clé inéxistante');
-    data.id = bankData.length;
-    data.comptes = [{rib: genererRIB(), type: "Principale"}, {rib: genererRIB(), type: "Epargne"}];
+    data.comptes = [{rib: genererRIB(), type: "Principal", credit: 10000}, {rib: genererRIB(), type: "Epargne", credit: 0}];
+    data.factures = [];
 
     bankData.push(data);
     localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
