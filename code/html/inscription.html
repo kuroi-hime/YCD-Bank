@@ -1,51 +1,52 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <title>Inscription</title>
-</head>
-<body class="font-['Inter'] h-[100vh] w-[100wh] bg-[#CCC9DC] flex flex-col gap-[5%]">
-    <header class="h-[10vh]">
-        <div class="h-full w-fit flex items-center pl-[16px] py-[4px]">
-            <img class="h-[80%]" src="../../media/logo_black.png" alt="logo YCD Bank">
-            <p class="font-medium text-lg  h-fit">YCD Bank</p>
-        </div>
-    </header>
-    <main class="bg-[#CCC9DC] h-[90vh] flex flex-col gap-[10%] items-center box-sizing">
-        <div class="flex flex-col justify-between h-full pb-[5%] items-center w-[90%]">
-            <div class="drop-shadow-lg/50 flex flex-col items-center gap-[32px] h-[80%] rounded-[30px] bg-[url('../../media/background.jpeg')] bg-cover bg-center w-[80%]">
-                <h3 class="font-medium text-[18px] text-center mt-[16px]">Inscription</h3>
-                <form class="flex flex-col gap-3 items-center w-full overflow-auto">
-                    <div class="grid grid-cols-2 gap-3 w-[90%]">
-                        <label class="mb-[-8px]" for="prenom ">Prénom</label>
-                        <label class="mb-[-8px]" for="nom">Nom</label>
-                        <input class="border-2 border-[#324A5F] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="prenom" id="prenom">
-                        <input class="border-2 border-[#324A5F] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="nom" id="nom">
-                    </div>
-                    <label class="self-start ml-[5%] mb-[-8px]" for="email">Mail</label>
-                    <input class="border-2 border-[#324A5F] w-[90%] font-normal text-[16px] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="email" name="email" id="email">
-                    <div class="grid grid-cols-4 gap-3 w-[90%] pb-[8px]">
-                        <label class="col-span-2 mb-[-8px]" for="telephone">Téléphone</label>
-                        <label class="col-span-2 mb-[-8px]" for="civilite">Civilité</label>
-                        <input class="border-2 border-[#324A5F] col-span-2 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="telephone" id="telephone">
-                        <select class="border-2 border-[#324A5F] col-span-2 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" name="civilite" id="civilite">
-                            <option value="M.">Monsieur</option>
-                            <option value="Mme">Madame</option>
-                            <option value="Mlle">Mademoiselle</option>
-                        </select>
-                        <label class="col-span-4 mb-[-8px]" for="adresse">Adresse</label>
-                        <input class="border-2 border-[#324A5F] col-span-4 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="adresse" id="adresse">
-                    </div>
-                </form>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+        <title>Inscription</title>
+    </head>
+    <body class="font-['Inter'] h-[100vh] w-[100wh] bg-[#CCC9DC] flex flex-col gap-[5%]">
+        <header class="h-[10vh]">
+            <div class="h-full w-fit flex items-center pl-[16px] py-[4px]">
+                <img class="h-[80%]" src="../../media/logo_black.png" alt="logo YCD Bank">
+                <p class="font-medium text-lg  h-fit">YCD Bank</p>
             </div>
-            <button class="inset-shadow-sm/50 font-medium text-[18px] text-white bg-[#324A5F] py-[16px] w-[80%] rounded-[30px]">Suivant</button>
-        </div>
-    </main>
-    <script src="../js/inscription.js"></script>
-</body>
+        </header>
+        <main class="bg-[#CCC9DC] h-[90vh] flex flex-col gap-[10%] items-center box-sizing">
+            <div class="flex flex-col justify-between h-full pb-[5%] items-center w-[90%]">
+                <div class="drop-shadow-lg/50 flex flex-col items-center gap-[32px] h-[80%] rounded-[30px] bg-[url('../../media/background.jpeg')] bg-cover bg-center w-[80%]">
+                    <h3 class="font-medium text-[18px] text-center mt-[16px]">Inscription</h3>
+                    <form class="flex flex-col gap-3 items-center w-full overflow-auto">
+                        <div class="grid grid-cols-2 gap-3 w-[90%]">
+                            <label class="mb-[-8px]" for="prenom ">Prénom</label>
+                            <label class="mb-[-8px]" for="nom">Nom</label>
+                            <input class="border-2 border-[#324A5F] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="prenom" id="prenom" placeholder="Votre prénom">
+                            <input class="border-2 border-[#324A5F] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="nom" id="nom" placeholder="Votre nom">
+                        </div>
+                        <label class="self-start ml-[5%] mb-[-8px]" for="email">Mail</label>
+                        <input class="border-2 border-[#324A5F] w-[90%] font-normal text-[16px] py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="email" name="email" id="email" placeholder="Exemple@exmple.com">
+                        <div class="grid grid-cols-4 gap-3 w-[90%] pb-[8px]">
+                            <label class="col-span-2 mb-[-8px]" for="telephone">Téléphone</label>
+                            <label class="col-span-2 mb-[-8px]" for="civilite">Civilité</label>
+                            <input class="border-2 border-[#324A5F] col-span-2 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="telephone" id="telephone" placeholder="05x, 06x ou 07x">
+                            <select class="border-2 border-[#324A5F] col-span-2 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" name="civilite" id="civilite">
+                                <option value="M.">Monsieur</option>
+                                <option value="Mme">Madame</option>
+                                <option value="Mlle">Mademoiselle</option>
+                            </select>
+                            <label class="col-span-4 mb-[-8px]" for="adresse">Adresse</label>
+                            <input class="border-2 border-[#324A5F] col-span-4 py-[8px] pl-[8px] rounded-[10px] bg-[#EDEEF2]" type="text" name="adresse" id="adresse" placeholder="N° rue X quartier X nom ville">
+                        </div>
+                    </form>
+                </div>
+                <button class="inset-shadow-sm/50 font-medium text-[18px] text-white bg-[#324A5F] py-[16px] w-[80%] rounded-[30px]">Suivant</button>
+            </div>
+        </main>
+        <div id="alertFaild" class="fixed top-4 right-4 bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded shadow-md hidden"></div>
+        <script src="../js/inscription.js"></script>
+    </body>
 </html>

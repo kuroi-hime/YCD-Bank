@@ -30,14 +30,12 @@ function generatePDF(id){
     const doc = new jsPDF();
 
     if(id.includes('recharge')){
-        // let data = bankData[currentUser.index].recharges[id.split(':')[1]];
-        // console.log(data);
-//     doc.text("Hello, this is a PDF generated with jsPDF!", 100, 100);  
-
-        doc.save(`recharge.pdf`);
+        let data = bankData[currentUser.index].recharges[parseInt(id.split(':')[1])];
+        // doc.text("Recharge");
+        // doc.text(``)  
     }else{
-        // let data = bankData[currentUser.index].recharges[id.split(':')[1]];
-        // console.log(data);
-        doc.save(`sample.pdf`);
+        let data = bankData[currentUser.index].factures[parseInt(id.split(':')[1])];
+        // doc.text("Facture");
     }
+    doc.save(`${id}.pdf`);
 }

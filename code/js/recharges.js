@@ -87,6 +87,7 @@ function getForm(){
     recharge.numero = getNum();
     recharge.montant = getMontant();
     recharge.status = '';
+    recharge.date = new Date();
     if(favoris.checked){
         recharge.libelle = getLibelle();
         recharge.status = 'favoris';
@@ -122,5 +123,8 @@ document.querySelector('button').addEventListener('click', ()=>{
         }
         else
             console.log(error.message);
+    }
+    finally{
+
     }
 });
