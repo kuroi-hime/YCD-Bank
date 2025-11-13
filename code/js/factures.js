@@ -34,8 +34,8 @@ fetch("../../media/fournisseurs.json").then(response => response.json()).then(da
 }).catch(e => console.log(e.message));
 
 function getFournisseur(){
-    if(listeOperateurs.value == '') throw new Error('vide');
-    if(!listeOperateurs.options[listeOperateurs.selectedIndex].closest('optgroup'))throw new Error('vide');
+    if(listeOperateurs.value == '') throw new Error('veuillez remplir tous les champs');
+    if(!listeOperateurs.options[listeOperateurs.selectedIndex].closest('optgroup'))throw new Error('veuillez remplir tous les champs');
     let type = listeOperateurs.options[listeOperateurs.selectedIndex].closest('optgroup').label;
     
     return {fournisseur: listeOperateurs.value, type: type};
@@ -43,13 +43,15 @@ function getFournisseur(){
 
 function getFacture(){
     if(!ref) throw new Error('inexistant');
-    if(ref.value == '') throw new Error('vide');
+    if(ref.value == '') throw new Error('veuillez remplir tous les champs');
+    let re = /^[0-9]{8,}$/;
+    if(!re.test(ref.value)) throw new Error('référence de facture éronnée');
 
     return ref.value;
 }
 
 function getMontant(){
-    if(selectmontant.value == 'none') throw new Error('vide');
+    if(selectmontant.value == 'none') throw new Error('veuillez remplir tous les champs');
     return parseFloat(selectmontant.value);
 }
 
@@ -63,7 +65,7 @@ ref.addEventListener('change', ()=>{
 });
 
 function getLibelle(){
-    if(libelle.value == '') throw new Error('vide');
+    if(libelle.value == '') throw new Error('veuillez remplir tous les champs');
 
     return libelle.value;
 }
@@ -73,6 +75,7 @@ function getForm(){
     facture.ref = getFacture();
     facture.montant = getMontant();
     facture.status = '';
+    facture.date = new Date();
     if(favoris.checked){
         facture.libelle = getLibelle();
         facture.status = 'favoris';
@@ -97,16 +100,21 @@ document.querySelector('button').addEventListener('click', ()=>{
         setTimeout(() => {
         alertBox.classList.add("hidden");
         }, 1500);
-    } catch (error) {
-        if(error.message == 'vide'){
-            alertFaild.innerText = 'Veuillez remplir tous les champs.';
+    } catch (erreur) {
+        if(erreur.message == 'veuillez remplir tous les champs' || erreur.message == 'référence de facture éronnée' || erreur.message == 'solde insufisant'){
+            alertFaild.innerText = erreur.message;
             alertFaild.classList.remove('hidden');
 
             setTimeout(()=>{
                 alertFaild.classList.add('hidden');
             }, 1500);
         }
-        else
-            console.log(error.message);
+        else{
+            console.log(erreur.message);
+        }
+    }finally{
+        listeOperateurs.value = 'none';
+        ref.value = '';
+        selectmontant.value = 'none';
     }
 });
