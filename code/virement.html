@@ -40,7 +40,7 @@
 
             <div class="flex gap-2 items-center ">
             <i class="fa-solid fa-credit-card fa-2xs text-purple-500"></i>
-            <a href="" class="py-2 hover:text-green-600">Mes cartes</a>
+            <a href="cartes.html" class="py-2 hover:text-green-600">Mes cartes</a>
             </div>
          </div>
         </div>
@@ -85,18 +85,22 @@
       <div class="flex justify-around">
         <div class="flex flex-col gap-2">
           <h2 class="font-bold text-[16px]">Compte à Débiter</h2>
-          <p>Compte Principale</p>
-          <p>4210 9834 7612 5098 3476 1209</p>
+          <p id="typecompte">Compte Principale</p>
+          <p id="RIB">4210 9834 7612 5098 3476 1209</p>
         </div>
         <div class="flex flex-col justify-around items-center h-24">
           <div class="flex gap-2 ml-20">
-            <i class="fa-solid fa-circle fa-2xs text-[#05B013]"></i>
-            <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
+            <button id="button-cp">
+            <i class="fa-solid fa-circle fa-2xs text-[#05B013]" id="icon-ce"></i>
+            </button>
+            <button id="button-ce">
+            <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]" id="icon-cp" ></i>
+            </button>
           </div>
           <div class="flex flex-col items-center">
-            <p>7000 MAD</p>
-            <button aria-label="Toggle visibility">
-              <i class="fa-regular fa-eye"></i>
+            <p id="amount">7000 MAD</p>
+            <button id="hideshow" aria-label="Toggle visibility">
+              <i id="eye" class="fa-regular fa-eye"></i>
             </button>
           </div>
         </div>
@@ -109,42 +113,77 @@
     </div>
 
     <!-- Account to Credit -->
-    <section class="account-information h-[118px] mt-[40px]">
-      <div class="flex justify-between items-start">
-        <div class="flex flex-col ml-20 gap-2">
+    <section class="account-information h-[118px] w-auto mt-[40px]">
+      <div class="flex justify-around">
+        <div class="flex flex-col gap-2">
           <h2 class="font-bold text-[16px]">Compte à Créditer</h2>
-          <p>Halima Hamada</p>
+          <p id="Benificaire">Halima Hamada</p>
           <p>5210 1834 7612 8098 7476 8209</p>
         </div>
-        <div class="flex gap-2 mr-20 mt-1">
-          <i class="fa-solid fa-circle fa-2xs text-[#05B013]"></i>
-          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
-          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
-          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
-          <i class="fa-solid fa-circle fa-2xs text-[#CCC9DC]"></i>
-        </div>
+        <div class="flex gap-2 items-start">
+          <button id="Benificairebtn1">
+          <i id="Benificaireicon1" class="fa-solid fa-circle fa-2xs text-[#05B013] Benificaire"></i>
+          </button>
+          <button id="Benificairebtn2">
+          <i id="Benificaireicon2" class="fa-solid fa-circle fa-2xs text-[#CCC9DC] Benificaire"></i>
+          </button>
+          <button id="Benificairebtn3">
+          <i id="Benificaireicon3" class="fa-solid fa-circle fa-2xs text-[#CCC9DC] Benificaire"></i>
+          </button>
+          <button id="Benificairebtn4">
+          <i id="Benificaireicon4" class="fa-solid fa-circle fa-2xs text-[#CCC9DC] Benificaire"></i>
+          </button>
+          <button id="Benificairebtn5">
+          <i id="Benificaireicon5" class="fa-solid fa-circle fa-2xs text-[#CCC9DC] Benificaire"></i>
+          </button>
+          </div>
       </div>
     </section>
 
     <!-- Transaction Form -->
-    <section class="transaction-information flex justify-center items-center">
-      <div class="grid grid-cols-2 gap-y-4 gap-x-6 rounded-3xl bg-[#324A5F] p-6 mt-3 w-[80%]">
+    <section class="transaction-information flex flex-col justify-center gap-5 items-center h-[45vh] ">
+      <form class="grid grid-cols-2 gap-y-4 gap-x-6 rounded-3xl bg-[#324A5F] p-6 mt-3  w-[80%]">
         <label for="montant" class="text-white self-center">Montant :</label>
-        <input id="montant" type="number" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
+        <input id="montant" type="number" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]">
 
         <label for="motif" class="text-white self-center">Motif :</label>
-        <input id="motif" type="text" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
+        <input id="motif" type="text" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]">
 
         <label for="password" class="text-white self-center">Mot de passe :</label>
-        <input id="password" type="password" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" />
-      </div>
-    </section>
+        <input id="password" type="password" class="rounded-3xl bg-[#EDEEF2] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]" >
+      </form>
+    
 
-    <div class="flex items-center justify-center mt-4">
-      <button class="rounded-3xl bg-[#324A5F] px-4 py-2 w-[70%] drop-shadow-[0_4px_6px_black]">
+    <div class="flex justify-center w-[60%]">
+      <button id="validate-btn" class="rounded-3xl bg-[#324A5F] px-4 py-2 w-full drop-shadow-[0_4px_6px_black]">
         <span class="text-white text-[18px]">Valider</span>
       </button>
     </div>
+    </section>
+
+    <div id ="confirmation-popup" class="fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center hidden">
+  <div class="confirmation-popup  rounded-3xl bg-gray-300 flex flex-col justify-center items-center border-2 border-blue-700 p-6 ">
+     
+      <div class="flex justify-end items-start w-full">
+      <button id="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      </div>
+      <div class="text">
+        <p id="Confirmation-text" class="text-black font-bold text-[20px]">text</p>
+      </div>
+
+      <div class="flex justify-center gap-4 w-[80%] mt-4">
+        <button id="oui" class="text-center bg-green-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Oui</p>
+        </button>
+        <button id="non" class="text-center bg-red-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Non</p>
+        </button>
+      </div>
+    </div>
+  </div>
+
   </main>
 
   <script src="js/virement.js"></script>
