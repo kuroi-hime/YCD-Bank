@@ -100,6 +100,7 @@ document.querySelector('button').addEventListener('click', ()=>{
         let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         let recharge = getForm();
+        recharge.id = bankData[currentUser.index].recharges.length;
         bankData[currentUser.index].recharges.push(recharge);
         if(bankData[currentUser.index].comptes[0].credit < recharge.montant) throw new Error('solde insufisant');
         bankData[currentUser.index].comptes[0].credit -= recharge.montant;

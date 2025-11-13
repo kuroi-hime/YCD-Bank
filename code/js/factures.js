@@ -86,6 +86,7 @@ document.querySelector('button').addEventListener('click', ()=>{
         let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
         let currentUser = JSON.parse(localStorage.getItem('currentUser'));
         let facture = getForm();
+        facture.id = bankData[currentUser.index].factures.length;
         bankData[currentUser.index].factures.push(facture);
         if(bankData[currentUser.index].comptes[0].credit < facture.montant) throw new Error('solde insufisant');
         bankData[currentUser.index].comptes[0].credit -= facture.montant;

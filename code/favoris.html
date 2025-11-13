@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reçus</title>
+    <title>Mes favoris</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
         <svg class="h-[50%]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M4 6H20M4 12H20M4 18H20" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
         
         <div class="h-full w-fit flex items-center py-[4px]">
-            <img class="h-[80%]" src="../../media/logo_black.png" alt="logo YCD Bank">
+            <img class="h-[80%]" src="../media/logo_black.png" alt="logo YCD Bank">
             <p class="font-medium text-lg  h-fit">YCD Bank</p>
         </div>
 
@@ -24,16 +24,37 @@
         </div>
     </header>
     <main class="h-[90%] w-full flex flex-col items-center justify-between">
+        <!-- <dialog>
+            <fieldset>
+                <legend>Nouveau favori</legend>
+                <input id="draft" class="peer/draft" type="radio" name="status" checked />
+                <label for="draft" class="peer-checked/draft:text-sky-500">Recharge</label>
+                <input id="published" class="peer/published" type="radio" name="status" />
+                <label for="published" class="peer-checked/published:text-sky-500">Facture</label>
+                <div class="hidden peer-checked/draft:block">Drafts are only visible to administrators.</div>
+                <div class="hidden peer-checked/published:block">Your post will be publicly visible on your site.</div>
+            </fieldset>
+        </dialog> -->
+        <div popover id="my-popover" class="back opacity-0 open:opacity-100 ...">
+        
+        </div>
         <div class="h-full w-[80%] flex flex-col gap-[72px]">
-            <h3 class="w-full h-[50px] bg-[#324A5F] rounded-3xl flex items-center justify-center font-medium text-[22.13px] text-[#CCC9DC]">Reçus</h3>
-            <div id="container" class="flex flex-col items-center gap-[16px] h-fit overflow-auto">
+            <h3 class="w-full h-[50px] bg-[#324A5F] rounded-3xl flex items-center justify-center font-medium text-[22.13px] text-[#CCC9DC]">Favoris</h3>
+            <div class="flex flex-col items-center gap-[16px] h-fit overflow-auto">
                 <!-- empty icon -->
-                <svg width="64px" height="64px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="_x3C_Layer_x3E_" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="page_x2C__document_x2C__emoji_x2C__No_results_x2C__empty_page"> <g id="XMLID_1521_"> <path d="M21.5,14.75c0.41,0,0.75,0.34,0.75,0.75s-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75 S21.09,14.75,21.5,14.75z" fill="#263238" id="XMLID_1887_"></path> <path d="M10.5,14.75c0.41,0,0.75,0.34,0.75,0.75s-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75 S10.09,14.75,10.5,14.75z" fill="#263238" id="XMLID_1885_"></path> </g> <g id="XMLID_1337_"> <g id="XMLID_4010_"> <polyline fill="none" id="XMLID_4073_" points=" 21.5,1.5 4.5,1.5 4.5,30.5 27.5,30.5 27.5,7.5 " stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <polyline fill="none" id="XMLID_4072_" points=" 21.5,1.5 27.479,7.5 21.5,7.5 21.5,4 " stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <path d=" M14.5,18.5c0-0.83,0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5" fill="none" id="XMLID_4071_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <g id="XMLID_4068_"> <path d=" M20.75,15.5c0,0.41,0.34,0.75,0.75,0.75s0.75-0.34,0.75-0.75s-0.34-0.75-0.75-0.75S20.75,15.09,20.75,15.5z" fill="none" id="XMLID_4070_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <path d=" M11.25,15.5c0,0.41-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75s0.34-0.75,0.75-0.75S11.25,15.09,11.25,15.5z" fill="none" id="XMLID_4069_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> </g> </g> <g id="XMLID_2974_"> <polyline fill="none" id="XMLID_4009_" points=" 21.5,1.5 4.5,1.5 4.5,30.5 27.5,30.5 27.5,7.5 " stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <polyline fill="none" id="XMLID_4008_" points=" 21.5,1.5 27.479,7.5 21.5,7.5 21.5,4 " stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <path d=" M14.5,18.5c0-0.83,0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5" fill="none" id="XMLID_4007_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <g id="XMLID_4004_"> <path d=" M20.75,15.5c0,0.41,0.34,0.75,0.75,0.75s0.75-0.34,0.75-0.75s-0.34-0.75-0.75-0.75S20.75,15.09,20.75,15.5z" fill="none" id="XMLID_4006_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <path d=" M11.25,15.5c0,0.41-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75s0.34-0.75,0.75-0.75S11.25,15.09,11.25,15.5z" fill="none" id="XMLID_4005_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> </g> </g> </g> </g> </g></svg>
-                <p>Aucun reçu</p>
+                <!-- <svg width="64px" height="64px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" id="_x3C_Layer_x3E_" version="1.1" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="page_x2C__document_x2C__emoji_x2C__No_results_x2C__empty_page"> <g id="XMLID_1521_"> <path d="M21.5,14.75c0.41,0,0.75,0.34,0.75,0.75s-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75 S21.09,14.75,21.5,14.75z" fill="#263238" id="XMLID_1887_"></path> <path d="M10.5,14.75c0.41,0,0.75,0.34,0.75,0.75s-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75 S10.09,14.75,10.5,14.75z" fill="#263238" id="XMLID_1885_"></path> </g> <g id="XMLID_1337_"> <g id="XMLID_4010_"> <polyline fill="none" id="XMLID_4073_" points=" 21.5,1.5 4.5,1.5 4.5,30.5 27.5,30.5 27.5,7.5 " stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <polyline fill="none" id="XMLID_4072_" points=" 21.5,1.5 27.479,7.5 21.5,7.5 21.5,4 " stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <path d=" M14.5,18.5c0-0.83,0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5" fill="none" id="XMLID_4071_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <g id="XMLID_4068_"> <path d=" M20.75,15.5c0,0.41,0.34,0.75,0.75,0.75s0.75-0.34,0.75-0.75s-0.34-0.75-0.75-0.75S20.75,15.09,20.75,15.5z" fill="none" id="XMLID_4070_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <path d=" M11.25,15.5c0,0.41-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75s0.34-0.75,0.75-0.75S11.25,15.09,11.25,15.5z" fill="none" id="XMLID_4069_" stroke="#455A64" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> </g> </g> <g id="XMLID_2974_"> <polyline fill="none" id="XMLID_4009_" points=" 21.5,1.5 4.5,1.5 4.5,30.5 27.5,30.5 27.5,7.5 " stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <polyline fill="none" id="XMLID_4008_" points=" 21.5,1.5 27.479,7.5 21.5,7.5 21.5,4 " stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></polyline> <path d=" M14.5,18.5c0-0.83,0.67-1.5,1.5-1.5s1.5,0.67,1.5,1.5" fill="none" id="XMLID_4007_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <g id="XMLID_4004_"> <path d=" M20.75,15.5c0,0.41,0.34,0.75,0.75,0.75s0.75-0.34,0.75-0.75s-0.34-0.75-0.75-0.75S20.75,15.09,20.75,15.5z" fill="none" id="XMLID_4006_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> <path d=" M11.25,15.5c0,0.41-0.34,0.75-0.75,0.75s-0.75-0.34-0.75-0.75s0.34-0.75,0.75-0.75S11.25,15.09,11.25,15.5z" fill="none" id="XMLID_4005_" stroke="#263238" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10"></path> </g> </g> </g> </g> </g></svg>
+                <p>Aucun favoris</p> -->
+                <div class="w-full flex items-center justify-between px-[4%] bg-[#CCC9DC] rounded-3xl">
+                    <p class="h-fit font-medium text-[20px]">Libellé</p>
+                    <div class="flex items-center gap-[10%] w-fit">
+                        <svg class="h-[50px]" fill="#000000" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path class="st0" d="M12 25l3 3 15-15-3-3-15 15zM11 26l3 3-4 1z"></path></g></svg>
+                        <svg class="h-[40px]" fill="red" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M5.755,20.283,4,8H20L18.245,20.283A2,2,0,0,1,16.265,22H7.735A2,2,0,0,1,5.755,20.283ZM21,4H16V3a1,1,0,0,0-1-1H9A1,1,0,0,0,8,3V4H3A1,1,0,0,0,3,6H21a1,1,0,0,0,0-2Z"></path></g></svg>
+                    </div>
+                </div>
             </div>
         </div>
+        <button popovertarget="my-popover" class="inset-shadow-sm/50 font-medium text-[18px] text-white bg-[#324A5F] py-[16px] my-[16px] w-[80%] rounded-[30px]" name="favorite" type="button">Ajouter</button>
+    
     </main>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-    <script src="../js/reçus.js"></script>
     </body>
 </html>
