@@ -34,9 +34,9 @@
     <h1 class="text-2xl font-bold mb-6">Mes cartes</h1>
 
     
-    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex items-center gap-6">
+    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
       
-      <div class="relative w-64 h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
+      <div class="relative max-w-sm w-[70%] h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
         
         <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
         
@@ -61,19 +61,19 @@
           <p>Solde : 12,500 MAD</p>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <button class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttondetails" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
             Voir détails
           </button>
-          <button class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttonbloquer" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
             Bloquer
           </button>
         </div>
       </div>
     </section>
 
-    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex items-center gap-6">
+    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
 
-      <div class="relative w-64 h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700">
+      <div class="relative w-[70%] max-w-sm h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700">
         
         <div class="absolute top-6 right-6 flex items-center">
           <div class="w-8 h-8 rounded-full bg-red-500"></div>

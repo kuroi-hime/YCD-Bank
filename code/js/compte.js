@@ -23,7 +23,8 @@ cebutton.addEventListener("click",function(){
     cebutton.classList.add("text-[#05B013]");
     cpbutton.classList.remove("text-[#05B013]");
     cpbutton.classList.add("text-[#CCC9DC]");
-    typecompte.textContent="Compte d'épargne "
+    typecompte.textContent="Compte d'épargne ";
+    RIB.textContent="5210 9834 7612 5098 3478 1209";
 }
 )
 
@@ -33,6 +34,7 @@ cpbutton.addEventListener("click",function(){
     cebutton.classList.remove("text-[#05B013]");
     cebutton.classList.add("text-[#CCC9DC]");
     typecompte.textContent="Compte principale "
+    RIB.textContent="4210 9834 7612 5098 3478 1209"
 }
 )
 
