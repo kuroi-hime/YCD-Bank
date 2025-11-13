@@ -36,7 +36,7 @@
     
     <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
       
-      <div class="relative max-w-sm w-[70%] h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
+      <div id="card1" class="relative max-w-sm w-[70%] h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
         
         <div class="absolute top-5 left-5 w-10 h-7 rounded-sm bg-yellow-400 shadow-inner"></div>
         
@@ -59,12 +59,13 @@
         <div class="flex flex-col gap-1">
           <h2 class="font-bold text-[16px]">Carte Visa Classic</h2>
           <p>Solde : 12,500 MAD</p>
+          <p id="statut1" class="font-bold text-green-600">Staut : ACTIVE</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <button id="buttondetails" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
             Voir détails
           </button>
-          <button id="buttonbloquer" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttonbloquer1" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow ">
             Bloquer
           </button>
         </div>
@@ -73,7 +74,7 @@
 
     <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
 
-      <div class="relative w-[70%] max-w-sm h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700">
+      <div id="card2" class="relative w-[70%] max-w-sm h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700 ">
         
         <div class="absolute top-6 right-6 flex items-center">
           <div class="w-8 h-8 rounded-full bg-red-500"></div>
@@ -100,22 +101,44 @@
         <div class="flex flex-col gap-1">
           <h2 class="font-bold text-[16px]">Carte Mastercard Gold</h2>
           <p>Solde : 25,000 MAD</p>
+          <p id="statut2" class="font-bold text-green-600">Staut : ACTIVE</p>
         </div>
         <div class="flex flex-col items-center gap-2">
           <button class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
             Voir détails
           </button>
-          <button class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttonbloquer2" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
             Bloquer
           </button>
         </div>
       </div>
     </section>
 
+    <div id ="confirmation-popup" class="fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center hidden">
+      <div class="confirmation-popup  rounded-3xl bg-gray-300 flex flex-col justify-center items-center border-2 border-blue-700 p-6 ">
+      <div class="flex justify-end items-start w-full">
+      <button id="close">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      </div>
+      <div class="text">
+        <p id="Confirmation-text" class="text-black font-bold text-[20px]">text</p>
+      </div>
+
+      <div class="flex justify-center gap-4 w-[80%] mt-4">
+        <button id="oui" class="text-center bg-green-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Oui</p>
+        </button>
+        <button id="non" class="text-center bg-red-500 border-2 border-white rounded-3xl px-4 py-2">
+          <p class="text-white">Non</p>
+        </button>
+        </div>
+      </div>
+    </div>
+
 
   </main>
 
-  <script src="js/compte.js"></script>
-
+  <script src="../js/cartes.js"></script>
 </body>
 </html>
