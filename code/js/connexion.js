@@ -1,4 +1,5 @@
-
+let alertSucces = document.getElementById('alertSuccess');
+let alertFaild = document.getElementById('alertFaild');
 
 document.querySelector('button').addEventListener('click', ()=>{
     let identifiant = document.getElementById('identifiant');
@@ -9,14 +10,17 @@ document.querySelector('button').addEventListener('click', ()=>{
     let a = document.createElement('a');
     if(currentUser){
         if(currentUser.password == password.value){
-            localStorage.setItem('currentUser', JSON.stringify({index: bankData.indexOf(currentUser)}))
-            console.log(localStorage.getItem(currentUser));
+            localStorage.setItem('currentUser', JSON.stringify({index: bankData.indexOf(currentUser)}));
         
-            a.href = 'compte.html'
+            a.href = 'compte.html';
             a.click();
         }
         else{
-            alert("Mot de passe erronne");
+            alertFaild.innerText = "Mot de passe érronné";
+            alertFaild.classList.remove('hidden');
+            setTimeout(()=>{
+                alertFaild.classList.add('hidden');
+            }, 1500);
             password.value = '';
         }
     }else{
