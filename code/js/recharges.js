@@ -7,6 +7,7 @@ const offres = document.getElementById('offres');
 const numLigne = document.getElementById('numero');
 const selectmontant = document.getElementById('montant');
 const recharges = [];
+let montants;
 const alertFaild = document.getElementById('alertFaild');
 
 operateur.addEventListener('change', ()=>{
@@ -33,49 +34,55 @@ function getOperateur(){
 }
 
 function getService(){
-    if(service.value == 'none') throw new Error('vide');
+    if(service.value == 'none') throw new Error('champ type service est vide');
 
     return service.value;
 }
 
 function getNum(){
-    if(numLigne.value == '') throw new Error('vide');
+    if(numLigne.value == '') throw new Error('champ numero est vide');
+    let re = service.value == 'telecom'? /^(05|06|07)[0-9]{8}$/g:/\d{8,}/g;
+    if(!re.test(numLigne.value)) throw new Error('numéro invalid');
 
     return numLigne.value;
 }
 
 function getMontant(){
-    if(selectmontant.value == 'none') throw new Error('vide');
+    if(selectmontant.value == 'none') throw new Error('champ montant est vide');
 
     return parseFloat(selectmontant.value);
 }
 
 service.addEventListener('change', ()=>{
     selectmontant.innerHTML = '<option value="none" disabled selected>Montant</option>';
+    montants = [];
     if(service.value == 'telecom'){
-            recharges.forEach(prix => {
-                let opt = document.createElement('option');
-                opt.innerText = `${prix} dh`;
-                selectmontant.appendChild(opt);
-            });
-        }else{
-            let montant = document.createElement('option'); 
-            montant.innerText = `${((Math.random()*19 + 2)*10).toFixed(2)} dh`; //parseFloat(); tofixed => string
-            selectmontant.appendChild(montant);
-        }
+        montants = recharges;
+    }else{
+        montants.push(((Math.random()*19 + 2)*10).toFixed(2));
+    }
+    numLigne.blur();
 });
 
-numLigne.addEventListener('blur', ()=>{
-    if(numLigne.value != ''){
-        selectmontant.removeAttribute('disabled');
+numLigne.addEventListener('change', ()=>{
+    selectmontant.innerHTML = '<option value="none" disabled selected>Montant</option>';
+    montants = [];
+    if(service.value == 'telecom'){
+        montants = recharges;
+    }else{
+        montants.push(((Math.random()*19 + 2)*10).toFixed(2));
     }
-    else{
-        selectmontant.setAttribute('disabled', 'disabled');
+    if(getNum()){
+        montants.forEach(montant=>{
+            let opt = document.createElement('option');
+            opt.innerText = `${montant} dh`;
+            selectmontant.appendChild(opt);
+        });
     }
 });
 
 function getLibelle(){
-    if(libelle.value == '') throw new Error('vide');
+    if(libelle.value == '') throw new Error('champ libelle est vide');
 
     return libelle.value;
 }
@@ -106,14 +113,23 @@ document.querySelector('button').addEventListener('click', ()=>{
         if(bankData[currentUser.index].comptes[0].credit < recharge.montant) throw new Error('solde insufisant');
         bankData[currentUser.index].comptes[0].credit -= recharge.montant;
         localStorage.setItem('YCD_Bank', JSON.stringify(bankData));
+
         const alertBox = document.getElementById("alertSuccess");
         alertBox.classList.remove("hidden");
 
         setTimeout(() => {
         alertBox.classList.add("hidden");
         }, 1500);
+        numLigne.value = '';
+        service.value = 'none';
+        selectmontant.innerHTML = '<option value="none" disabled selected>Montant</option>';
+        libelle.value = '';
+        if(favoris.checked){
+            favoris.checked = false;
+            libelle.classList.add('hidden');
+        }
     } catch (error) {
-        if(error.message == 'vide'){
+        if(error.message.includes('vide')){
             alertFaild.innerText = 'Veuillez remplir tous les champs.';
             alertFaild.classList.remove('hidden');
 
@@ -121,10 +137,17 @@ document.querySelector('button').addEventListener('click', ()=>{
                 alertFaild.classList.add('hidden');
             }, 1500);
         }
-        else
-            console.log(error.message);
-    }
-    finally{
+        else{
+            if(error.message.includes('insufisant') || error.message.includes('invalid')){
+                alertFaild.innerText = error.message;
+                alertFaild.classList.remove('hidden');
 
+                setTimeout(()=>{
+                    alertFaild.classList.add('hidden');
+                }, 1500);
+            }else{
+                console.log(error.message);
+            }
+        } 
     }
 });

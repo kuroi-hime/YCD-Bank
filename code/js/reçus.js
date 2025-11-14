@@ -36,14 +36,27 @@ function generatePDF(id){
         let data = bankData[currentUser.index].recharges[parseInt(id.split(':')[1])];
         titleWidth = doc.getTextWidth('recharge');
         doc.text("Recharge", (pageWidth - titleWidth)/2, line);
-        doc.text(``, 10, line+30);
-        // doc.text(``)  
+        doc.setFontSize(16);
+        doc.text(`montant: ${data.montant} dh`, 10, line+30);
+        doc.text(`date: ${data.date}`, 30+doc.getTextWidth(`montant: ${data.montant} dh`), line+30);
+        doc.text(`type: ${data.type}`, 10, line+50);
+        doc.text(`opérateur: ${data.operateur}`, 10+doc.getTextWidth(`operateur: ${data.operateur}`), line+50);
+        doc.text(`numéro: ${data.numero}`, 10, line+70);
+        if(data.status == 'favoris')
+            doc.text(`libellé: ${data.libelle}`, 30+doc.getTextWidth(`numero: ${data.numero}`), line+70);
     }else{
         let data = bankData[currentUser.index].factures[parseInt(id.split(':')[1])];
         titleWidth = doc.getTextWidth('facture');
         doc.text("Facture", (pageWidth - titleWidth)/2, line);
-        // doc.text("Facture");
+        doc.setFontSize(16);
+        doc.text(`référence: ${data.ref}`, 10, line+30);
+        doc.text(`date: ${data.date}`, 30+doc.getTextWidth(`référence: ${data.ref}`), line+30);
+        doc.text(`type: ${data.type}`, 10, line+50);
+        doc.text(`fournisseur: ${data.fournisseur}`, 30+doc.getTextWidth(`type: ${data.type}`), line+50);
+        doc.text(`montant: ${data.montant} dh`, 10, line+70);
+        if(data.status == 'favoris')
+            doc.text(`libellé: ${data.libelle}`, 30+doc.getTextWidth(`montant: ${data.montant} dh`), line+70);
+        
     }
-    console.log(titleWidth);
     doc.save(`${id}.pdf`);
 }

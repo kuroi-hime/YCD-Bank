@@ -4,6 +4,17 @@ let libelle = document.getElementById('libelle');
 const alertFaild = document.getElementById('alertFaild');
 let ref = document.getElementById('ref');
 let selectmontant = document.getElementById('montant');
+let menuIcon = document.getElementById("menu-icon");
+let navbar = document.getElementById("menu");
+let btnDeconnecter = document.getElementById("deconnecter");
+
+btnDeconnecter.addEventListener('click', ()=>{if(confirm("Voulez-vous vraiment vous déconnecter?")){
+    let a = document.createElement('a');
+    a.href = 'connexion.html';
+    a.click();
+    localStorage.removeItem('currentUser');
+}});
+menuIcon.addEventListener('click', ()=>{navbar.classList.toggle('hidden')});
 
 favoris.addEventListener('click', ()=>{
     if(favoris.checked)
@@ -100,6 +111,13 @@ document.querySelector('button').addEventListener('click', ()=>{
         setTimeout(() => {
         alertBox.classList.add("hidden");
         }, 1500);
+        listeOperateurs.value = 'none';
+        ref.value = '';
+        selectmontant.value = 'none';
+        if(favoris.checked){
+            favoris.checked = false;
+            libelle.classList.add('hidden');
+        } 
     } catch (erreur) {
         if(erreur.message == 'veuillez remplir tous les champs' || erreur.message == 'référence de facture éronnée' || erreur.message == 'solde insufisant'){
             alertFaild.innerText = erreur.message;
@@ -108,13 +126,11 @@ document.querySelector('button').addEventListener('click', ()=>{
             setTimeout(()=>{
                 alertFaild.classList.add('hidden');
             }, 1500);
+            if(erreur.message == 'référence de facture éronnée')
+                ref.value = '';
         }
         else{
             console.log(erreur.message);
         }
-    }finally{
-        listeOperateurs.value = 'none';
-        ref.value = '';
-        selectmontant.value = 'none';
     }
 });
