@@ -1,11 +1,13 @@
 let suivantButton = document.querySelector('button');
 let data = JSON.parse(sessionStorage.getItem('inscriptionData'));
+let alertSuccess = document.getElementById('alertSuccess');
+let alertFaild = document.getElementById('alertFaild');
 
 function getPassword(){
     let password = document.getElementById('password');
-    if(!password) throw new Error('inexistant');
-    if(password.value=='') throw new Error('vide');
-    if(password.value.length<4 || password.value.length>16) throw new Error('invalid');
+    if(!password) throw new Error('Champ password inexistant');
+    if(password.value=='') throw new Error('Champ password est vide');
+    if(password.value.length<4 || password.value.length>16) throw new Error('Champ password est invalid');
     return password.value;
 }
 
@@ -16,9 +18,9 @@ function setPassword(){
 
 function getConfirmation(){
     let password = document.getElementById('password_confirmation');
-    if(!password) throw new Error('inexistant');
-    if(password.value=='') throw new Error('vide');
-    if(password.value.length<4 || password.value.length>16) throw new Error('invalid');
+    if(!password) throw new Error('Champ confirmation password inexistant');
+    if(password.value=='') throw new Error('Champ confirmation password est vide');
+    if(password.value.length<4 || password.value.length>16) throw new Error('Champ confirmation password est invalid');
     return password.value;
 }
 
@@ -30,7 +32,7 @@ function setConfirmation(){
 function getForm(){
     let password = getPassword();
     let confirmation = getConfirmation();
-    if(password != confirmation) throw new Error('confirmation non identique');
+    if(password != confirmation) throw new Error('confirmation non identique au mot de passe');
 
     return password;
 }
@@ -50,20 +52,37 @@ suivantButton.addEventListener("click", ()=>{
     try{
         data.password = getForm();
         sessionStorage.setItem('inscriptionData', JSON.stringify(data));
-        const email = {
-            to: 'kuroihime095@gmail.com',
-            subject: 'Création nouveau compte chez YCD Bank',
-            text: `${generateCode()} est votre code pour achever l'ouvriture de votre compte.`
-        }
-        let a = document.createElement('a');
-        a.href = 'verification.html';
-        // a.href = `mailto:${email.to}?subject=${email.subject}&body=${email.text}`;
+
+        //generation fichier contenant le code:
+        localStorage.setItem('code', JSON.stringify(generateCode()));
+        const blob = new Blob([`Votre code de confirmation est le suivant: ${JSON.parse(localStorage.getItem('code'))}`], { type: "text/plain" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = "code de confirmation.txt"; 
         a.click();
+        URL.revokeObjectURL(url);
+
+        const b = document.createElement('a');
+        b.href = 'verification.html';
+        b.click();
 
     }catch(erreur){
-        // console.log(erreur.message);
-        alert(`Mot de passe: ${erreur.message}`);
-        setPassword();
-        setConfirmation();
+        if(erreur.message.includes('vide') || erreur.message.includes('invalid') || erreur.message.includes('identique')){
+            alertFaild.innerText = erreur.message;
+            alertFaild.classList.remove('hidden');
+            setTimeout(()=>{
+                alertFaild.classList.add('hidden');
+            }, 1500);
+
+            if(erreur.message == 'confirmation non identique au mot de passe')
+                setConfirmation();
+            else{
+                setPassword();
+                setConfirmation();
+            }
+        }else{
+            console.log(erreur.message);
+        }
     }
 });

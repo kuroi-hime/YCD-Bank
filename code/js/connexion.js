@@ -1,3 +1,6 @@
+let alertSucces = document.getElementById('alertSuccess');
+let alertFaild = document.getElementById('alertFaild');
+
 document.querySelector('button').addEventListener('click', ()=>{
     let identifiant = document.getElementById('identifiant');
     let password = document.getElementById('password');
@@ -7,23 +10,21 @@ document.querySelector('button').addEventListener('click', ()=>{
     let a = document.createElement('a');
     if(currentUser){
         if(currentUser.password == password.value){
-            // let xhr = new XMLHttpRequest();
-            // xhr.open('POST', 'http://localhost:5500/code/compte.html', true);
-            // xhr.setRequestHeader("Content-Type", "application/json");
-            // xhr.send(JSON.stringify(currentUser));
-            // xhr.onload = 
-            localStorage.setItem('currentUser', JSON.stringify({index: bankData.indexOf(currentUser)}))
-            console.log(localStorage.getItem(currentUser));
-            // a changer
-            a.href = '../compte.html'
+            localStorage.setItem('currentUser', JSON.stringify({index: bankData.indexOf(currentUser)}));
+        
+            a.href = 'compte.html';
             a.click();
         }
         else{
-            alert("Mot de passe erronne");
+            alertFaild.innerText = "Mot de passe érronné";
+            alertFaild.classList.remove('hidden');
+            setTimeout(()=>{
+                alertFaild.classList.add('hidden');
+            }, 1500);
             password.value = '';
         }
     }else{
-        if(confirm("Vous devez creer un compte dabord")){
+        if(confirm("Voullez-vous créer un nouveau compte")){
             a.href = '../html/inscription.html'
             a.click();
         }else{
