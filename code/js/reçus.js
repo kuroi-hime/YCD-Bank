@@ -28,14 +28,22 @@ bankData[currentUser.index].recharges.forEach(recharge => {
 function generatePDF(id){
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
-
+    let titleWidth;
+    const pageWidth = doc.internal.pageSize.getWidth(); //Get page width
+    let line = 20;
+    doc.setFontSize(20);
     if(id.includes('recharge')){
         let data = bankData[currentUser.index].recharges[parseInt(id.split(':')[1])];
-        // doc.text("Recharge");
+        titleWidth = doc.getTextWidth('recharge');
+        doc.text("Recharge", (pageWidth - titleWidth)/2, line);
+        doc.text(``, 10, line+30);
         // doc.text(``)  
     }else{
         let data = bankData[currentUser.index].factures[parseInt(id.split(':')[1])];
+        titleWidth = doc.getTextWidth('facture');
+        doc.text("Facture", (pageWidth - titleWidth)/2, line);
         // doc.text("Facture");
     }
+    console.log(titleWidth);
     doc.save(`${id}.pdf`);
 }
