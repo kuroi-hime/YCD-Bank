@@ -43,14 +43,23 @@
         <div class="absolute top-4 right-4 px-2 py-1 bg-white rounded text-blue-600 text-[10px] font-semibold uppercase tracking-wider">
           Visa
         </div>
-        
-        <div class="absolute bottom-14 left-5 text-white font-medium tracking-widest">
-          **** **** **** 1234
+
+        <div class="absolute bottom-14 left-5 text-white flex flex-col">
+        <p id="numérodelacarte" class="font-bold text-[0.6rem] text-black hidden">Numéro de la carte:</p>
+        <div class=" text-white font-medium tracking-widest">
+          <p id="numcarte">**** **** **** 1234</p>
+        </div>
         </div>
        
         <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
-          <span>Halima Hamada</span>
-          <span>12/27</span>
+          <div class="flex flex-col gap-1">
+          <p id="nomdutitulaire" class="text-black font-bold text-[0.6rem] hidden">Nom du titulaire:</p>
+          <p>Halima Hamada</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-black font-bold text-[0.6rem] hidden">Date d'éxpiration:</p>
+            <p>12/27</p>
+          </div>
         </div>
       </div>
 
