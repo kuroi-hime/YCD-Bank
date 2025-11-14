@@ -1,4 +1,3 @@
-let alertSucces = document.getElementById('alertSuccess');
 let alertFaild = document.getElementById('alertFaild');
 
 document.querySelector('button').addEventListener('click', ()=>{
@@ -6,7 +5,7 @@ document.querySelector('button').addEventListener('click', ()=>{
     let password = document.getElementById('password');
     let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
 
-    let currentUser = bankData.find(user => user.comptes.find(compte => compte.type == 'Principal' && compte.rib.includes(identifiant.value)));
+    let currentUser = bankData.find(user => user.comptes.find(compte => compte.type == 'Principal' && compte.rib.substring(6, 22) == identifiant.value));
     let a = document.createElement('a');
     if(currentUser){
         if(currentUser.password == password.value){
