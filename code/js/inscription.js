@@ -58,8 +58,8 @@ function getAdresse(){
     if(!data) throw new Error('inexistant');
     if(data.value=='') throw new Error('veuillez remplir tous les champs');
 
-    let re = /^[0-9]+\srue\s[a-zà-ÿ]+('?|-?|\s?)[a-zà-ÿ]+\squartier\s[a-zà-ÿ]+('?|\s?)[a-zà-ÿ]+\s[a-zà-ÿ]+('?|\s?)[a-zà-ÿ]+$/i;
-    if(!re.test(data.value)) throw new Error('veuillez respecter la syntaxe');
+    // let re = /^(\d+)\srue\s([\w\s]+?)\squartier\s([\w\s]+?)\s([\w\s]+)$/i;
+    // if(!re.test(data.value)) throw new Error('veuillez respecter la syntaxe');
 
     return data.value;
 }
