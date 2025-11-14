@@ -31,10 +31,14 @@
   </header>
 
   <main class="p-6">
-    <h1 class="text-2xl font-bold mb-6">Mes cartes</h1>
-
+    <div id="back-forth" class="flex items-center mb-6 gap-3">
+      <button id="leftarrow" class="hidden">
+        <i id="leftarowicon" class="fa-solid fa-arrow-left hidden"></i>
+      </button>
+    <h1 id="mescartes" class="text-2xl font-bold ">Mes cartes</h1>
+    </div>
     
-    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
+    <section id="cardcontainer1" class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
       
       <div id="card1" class="relative max-w-sm w-[70%] h-40 rounded-xl overflow-hidden shadow-lg bg-blue-600">
         
@@ -45,7 +49,7 @@
         </div>
 
         <div class="absolute bottom-14 left-5 text-white flex flex-col">
-        <p id="numérodelacarte" class="font-bold text-[0.6rem] text-black hidden">Numéro de la carte:</p>
+        <p class="font-bold text-[0.8rem] text-black hidden card1details">Numéro de la carte:</p>
         <div class=" text-white font-medium tracking-widest">
           <p id="numcarte">**** **** **** 1234</p>
         </div>
@@ -53,11 +57,11 @@
        
         <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
           <div class="flex flex-col gap-1">
-          <p id="nomdutitulaire" class="text-black font-bold text-[0.6rem] hidden">Nom du titulaire:</p>
+          <p  class="text-black font-bold text-[0.8rem] hidden card1details">Nom du titulaire:</p>
           <p>Halima Hamada</p>
           </div>
           <div class="flex flex-col gap-1">
-            <p class="text-black font-bold text-[0.6rem] hidden">Date d'éxpiration:</p>
+            <p class="text-black font-bold text-[0.8rem] hidden card1details">Date d'éxpiration:</p>
             <p>12/27</p>
           </div>
         </div>
@@ -71,7 +75,7 @@
           <p id="statut1" class="font-bold text-green-600">Staut : ACTIVE</p>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <button id="buttondetails" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttondetails1" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
             Voir détails
           </button>
           <button id="buttonbloquer1" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow ">
@@ -81,7 +85,7 @@
       </div>
     </section>
 
-    <section class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
+    <section id="cardcontainer2" class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 flex flex-col md:flex-row items-center gap-6">
 
       <div id="card2" class="relative w-[70%] max-w-sm h-40 rounded-xl overflow-hidden shadow-lg bg-gray-700 ">
         
@@ -96,13 +100,22 @@
           Mastercard
         </div>
         
-        <div class="absolute bottom-14 left-5 text-white font-medium tracking-widest">
+        <div class="absolute bottom-14 left-5">
+        <p class="card1details text-blue-600 hidden [0.8rem]">Numéro de la carte</p>
+        <div class=" text-white font-medium tracking-widest">
           **** **** **** 5678
+        </div>
         </div>
         
         <div class="absolute bottom-4 left-5 right-4 flex justify-between text-white text-xs">
-          <span>Compte Principale</span>
-          <span>08/26</span>
+          <div class="flex flex-col gap-1">
+          <p  class="text-blue-600 font-bold text-[0.8rem] hidden card1details">Nom du titulaire:</p>
+          <p>Oussama lamlouki</p>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="text-blue-600 font-bold text-[0.8rem] hidden card1details">Date d'éxpiration:</p>
+            <p>08/26</p>
+          </div>
         </div>
       </div>
 
@@ -113,7 +126,7 @@
           <p id="statut2" class="font-bold text-green-600">Staut : ACTIVE</p>
         </div>
         <div class="flex flex-col items-center gap-2">
-          <button class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
+          <button id="buttondetails2" class="rounded-3xl bg-green-600 px-4 py-2 text-white text-sm shadow">
             Voir détails
           </button>
           <button id="buttonbloquer2" class="rounded-3xl bg-red-600 px-4 py-2 text-white text-sm shadow">
@@ -122,6 +135,22 @@
         </div>
       </div>
     </section>
+
+    <div id="plafonds" class="rounded-3xl bg-[#324A5F] text-white p-6 mb-6 shadow-lg hidden">
+  <label for="dailyLimit" class="block font-semibold mb-2">
+    Plafond quotidien: <span id="dailyValue" class="text-yellow-400">5000</span> MAD
+  </label>
+  <input 
+    type="range" 
+    id="dailyLimit" 
+    min="0" 
+    max="10000" 
+    step="100" 
+    value="5000"
+    class="w-full accent-yellow-400 cursor-pointer"
+  >
+   </div>
+
 
     <div id ="confirmation-popup" class="fixed top-0 left-0 w-full h-full bg-black/40 flex justify-center items-center hidden">
       <div class="confirmation-popup  rounded-3xl bg-gray-300 flex flex-col justify-center items-center border-2 border-blue-700 p-6 ">
