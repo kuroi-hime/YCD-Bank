@@ -6,6 +6,17 @@ let container = document.getElementById('container');
 let favoris = [];
 let bankData = JSON.parse(localStorage.getItem('YCD_Bank'));
 let currentUser = JSON.parse(localStorage.getItem('currentUser'));
+let menuIcon = document.getElementById("menu-icon");
+let navbar = document.getElementById("menu");
+let btnDeconnecter = document.getElementById("deconnecter");
+
+btnDeconnecter.addEventListener('click', ()=>{if(confirm("Voulez-vous vraiment vous déconnecter?")){
+    let a = document.createElement('a');
+    a.href = 'connexion.html';
+    a.click();
+    localStorage.removeItem('currentUser');
+}});
+menuIcon.addEventListener('click', ()=>{navbar.classList.toggle('hidden')});
 
 btnShow.addEventListener('click', ()=>{popover.classList.remove('hidden')});
 btnAnnuler.addEventListener('click', ()=>{popover.classList.add('hidden')});
