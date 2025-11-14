@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Cards • Tailwind (Simple)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-slate-50 min-h-screen">
+    <main class="mx-auto max-w-7xl px-4 py-10">
+      <h1 class="text-2xl font-semibold text-slate-800 mb-6">Users</h1>
+
+      <div class="flex flex-col sm:flex-row gap-3 mb-4">
+        <input
+          id="search"
+          type="text"
+          placeholder="Rechercher un utilisateur..."
+          class="w-full sm:w-1/2 px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+        />
+
+        <select
+          id="city-filter"
+          class="w-full sm:w-1/3 px-3 py-2 rounded-xl border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-slate-900"
+        >
+          <option value="">Toutes les villes</option>
+          <option value="Casablanca">Casablanca</option>
+          <option value="Rabat">Rabat</option>
+          <option value="Marrakech">Marrakech</option>
+          <option value="Fès">Fès</option>
+        </select>
+      </div>
+
+      <section
+        id="cards"
+        class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+      >
+      </section>
+    </main>
+
+    <script>
+      const users = [
+        {
+          id: "USR-1001",
+          fullName: "M'hamed El Fassi",
+          username: "mohamed.fassi",
+          email: "mohamed.fassi@example.com",
+          phone: "+212 6 12 34 56 70",
+          address: {
+            street: "12 Rue Ibn Tofail",
+            city: "Casablanca",
+            state: "Grand Casablanca",
+            postalCode: "20000",
+            country: "Morocco",
+          },
+          jobTitle: "Full-Stack Developer",
+          company: "NextLine",
+          website: "https://nextline.dev",
+          avatarUrl: "https://i.pravatar.cc/256?img=68",
+          coverUrl: "https://picsum.photos/id/1015/1200/600",
+        },
+        {
+          id: "USR-1002",
+          fullName: "karim karimi",
+          username: "karim.karimi",
+          email: "karim.karimi@example.com",
+          phone: "+212 6 45 67 89 10",
+          address: {
+            street: "19 Avenue Hassan II",
+            city: "Rabat",
+            state: "Rabat-Salé-Kénitra",
+            postalCode: "10000",
+            country: "Morocco",
+          },
+          jobTitle: "DevOps Engineer",
+          company: "YouCode",
+          website: "https://youcode.ma",
+          avatarUrl: "https://i.pravatar.cc/256?img=12",
+          coverUrl: "https://picsum.photos/id/1005/1200/600",
+        },
+        {
+          id: "USR-1003",
+          fullName: "Imane El Idrissi",
+          username: "imane.idrissi",
+          email: "imane.idrissi@example.com",
+          phone: "+212 7 23 45 67 89",
+          address: {
+            street: "4 Derb El Baroud",
+            city: "Marrakech",
+            state: "Marrakech-Safi",
+            postalCode: "40000",
+            country: "Morocco",
+          },
+          jobTitle: "UI/UX Designer",
+          company: "Hadiyah",
+          website: "https://hadiyah.app",
+          avatarUrl: "https://i.pravatar.cc/256?img=47",
+          coverUrl: "https://picsum.photos/id/1011/1200/600",
+        },
+        {
+          id: "USR-1004",
+          fullName: "Rachid Amrani",
+          username: "rachid.am",
+          email: "rachid.amrani@example.com",
+          phone: "+212 6 98 76 54 32",
+          address: {
+            street: "27 Boulevard Mohammed V",
+            city: "Fès",
+            state: "Fès-Meknès",
+            postalCode: "30000",
+            country: "Morocco",
+          },
+          jobTitle: "Data Engineer",
+          company: "DevMarketplace",
+          website: "https://devmarketplace.io",
+          avatarUrl: "https://i.pravatar.cc/256?img=5",
+          coverUrl: "https://picsum.photos/id/1024/1200/600",
+        },
+        
+      ];
+       const cityfilter=document.getElementById("city-filter");
+
+       let users1=[];
+
+       for (let i=0;i<5;i++){
+        console.log(users[i].address.ci);
+        if(users[i].address.city==cityfilter.value){
+            users1.push(users[i]);
+        }
+       }
+       //renderUsers(users1);
+
+      /*const users1= users.filter();
+      renderUsers(users1);*/
+       
+      const cards = document.getElementById("cards");
+
+      function cardTemplate(u) {
+        return `
+        <article class="bg-white rounded-2xl shadow-sm ring-1 ring-slate-100 overflow-hidden hover:shadow-md transition">
+          <div class="relative h-28">
+            <img src="${u.coverUrl}" alt="Cover" class="w-full h-full object-cover" loading="lazy" />
+            <img
+              src="${u.avatarUrl}"
+              alt="${u.fullName}"
+              onerror="this.src='https://i.pravatar.cc/256?img=1';"
+              class="absolute -bottom-8 left-4 h-16 w-16 rounded-full ring-4 ring-white object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="pt-10 px-4 pb-4">
+            <div class="flex items-start justify-between gap-3">
+              <div>
+                <h2 class="text-base font-semibold text-slate-900 leading-tight">${u.fullName}</h2>
+                <p class="text-sm text-slate-500">@${u.username}</p>
+              </div>
+              <span class="text-[11px] font-medium px-2 py-1 rounded-full bg-slate-100 text-slate-700">${u.id}</span>
+            </div>
+
+            <p class="mt-3 text-sm text-slate-700">
+              ${u.jobTitle} • ${u.company}
+            </p>
+
+            <div class="mt-4 grid grid-cols-1 gap-2 text-sm">
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-5 text-slate-400">📞</span>
+                <a href="tel:${u.phone}" class="text-slate-700 hover:underline">${u.phone}</a>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-5 text-slate-400">✉️</span>
+                <a href="mailto:${u.email}" class="text-slate-700 hover:underline">${u.email}</a>
+              </div>
+              <div class="flex items-start gap-2">
+                <span class="inline-block w-5 text-slate-400">📍</span>
+                <p class="text-slate-700">
+                  ${u.address.street}, ${u.address.city}, ${u.address.state} ${u.address.postalCode}, ${u.address.country}
+                </p>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="inline-block w-5 text-slate-400">🌐</span>
+                <a href="${u.website}" target="_blank" rel="noreferrer" class="text-blue-600 hover:underline">
+                  ${u.website}
+                </a>
+              </div>
+            </div>
+
+            <div class="mt-4 flex gap-2">
+              <a
+                href="tel:${u.phone}"
+                class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium rounded-xl bg-slate-900 text-white hover:bg-slate-800"
+              >
+                Call
+              </a>
+              <a
+                href="mailto:${u.email}"
+                class="inline-flex items-center justify-center px-3 py-2 text-sm font-medium rounded-xl bg-slate-100 text-slate-900 hover:bg-slate-200"
+              >
+                Email
+              </a>
+            </div>
+          </div>
+        </article>
+        `;
+      }
+
+
+function renderUsers(list) {
+  cards.innerHTML = list.map(cardTemplate).join("");
+}
+
+renderUsers(users);
+
+
+
+
+    </script>
+  </body>
+</html>

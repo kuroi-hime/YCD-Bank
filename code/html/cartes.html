@@ -9,26 +9,73 @@
 </head>
 <body class="bg-gray-100">
   
-  <header>
-    <div class="flex justify-between items-center p-3">
-      
-      <div id="Hamburger-menu">
-        <button id="menu-btn" class="md:hidden ml-4">
-          <i id="menu-icon" class="fa-solid fa-bars"></i>
-        </button>
-      </div>
-      
-      <div class="flex items-center gap-2">
-        <img src="../media/ycdbanklogo-noBG.png" class="w-[59px] h-[50px]" alt="YCD Bank Logo" />
-        <h2 class="font-medium text-[18px]">YCD Bank</h2>
-      </div>
-      
-      <div class="flex gap-4 mr-4">
-        <i class="fa-regular fa-bell fa-lg"></i>
-        <i class="fa-regular fa-circle-user fa-lg"></i>
-      </div>
-    </div>
-  </header>
+      <header >
+
+        <div class="flex justify-between items-center relative ">
+             <div id="Hamburger-menu" >
+                <button id="menu-btn" class="md:hidden ml-4">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
+                </button>
+
+        <div id="menu" class="left-1 absolute border-2 border-[#324A5F] mt-2 flex flex-col justify-around bg-gray-100 p-3 rounded-3xl shadow-md transform scale-y-0 origin-top transition-transform duration-300 ease-out h-auto w-auto">
+            
+            <!--Menu elements-->
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-money-bill text-blue-600"></i>
+            <a href="paiement.html" class="py-2 hover:text-green-600">Paiements</a>
+            </div>
+
+            <div class="flex gap-2 items-center " >
+            <i class="fa-solid fa-money-bill-transfer text-green-600"></i>
+            <a href="virement.html" class="py-2 hover:text-green-600">Virement</a>
+            </div>
+
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-clock-rotate-left text-orange-500"></i>
+            <a href="historiques.html" class="py-2 hover:text-green-600">Historique</a>
+            </div>
+
+            <div class="flex gap-2 items-center ">
+            <i class="fa-solid fa-credit-card fa-2xs text-purple-500"></i>
+            <a href="" class="py-2 hover:text-green-600">Mes cartes</a>
+            </div>
+         </div>
+        </div>
+
+        <div class="flex items-center p-3">
+            <img src="/media/ycdbanklogo-noBG.png" style="width: 59px; height: 50px;">
+            <h2 class="font-medium" style="font-size:18px;">YCD Bank</h2>
+        </div>
+        
+        <div id="user-notif">
+        <div class="flex  gap-4 mr-4">
+            <button id="notification-bell-btn">
+               <i id="notification-bell-icon"  class="fa-regular fa-bell fa-lg"></i>
+            </button>
+            <button id="user-circle-btn">
+               <i id="user-circle" class="fa-regular fa-circle-user fa-lg"></i>
+            </button>
+        </div>
+
+
+        <div id="DECONNECT" class="right-1 absolute border-2 border-[#324A5F] mt-2 bg-gray-100 p-3 rounded-3xl shadow-md transform scale-y-0 origin-top transition-transform duration-300 ease-out h-auto w-[40%]">
+            
+            <div class="flex gap-2 items-center ">
+                <button id="DECONNECT-btn">
+                    <i id ="deconnect-icon" class="fa-solid fa-toggle-on text-green-600"></i>
+                </button>
+                <p class="text-bold">Deconnexion</p>
+            </div>
+
+
+         </div>
+        </div>
+        
+        </div>
+
+    </header>
 
   <main class="p-6">
     <div id="back-forth" class="flex items-center mb-6 gap-3">
@@ -176,7 +223,7 @@
 
 
   </main>
-
+  <script src="../js/compte.js"></script>
   <script src="../js/cartes.js"></script>
 </body>
 </html>
