@@ -85,3 +85,31 @@ deconnectbtn.addEventListener("click",function(){
 
     window.location.href = "connexion.html"; 
 })
+
+document.addEventListener("DOMContentLoaded", () => {
+  const amountElement = document.getElementById("amount");
+
+  const baseAmountMAD = 7000;
+
+  const rates = {
+    MAD: 1,
+    USD: 0.10, 
+    EUR: 0.09  
+  };
+
+
+  function updateAmount(currency) {
+    const converted = (baseAmountMAD * rates[currency]).toFixed(2);
+    amountElement.textContent = `${converted} ${currency}`;
+  }
+
+
+  document.querySelectorAll(".currency-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const currency = btn.getAttribute("data-currency");
+      updateAmount(currency);
+    });
+  });
+
+  updateAmount("MAD");
+});
