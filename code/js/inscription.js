@@ -1,6 +1,11 @@
 let prenom, nom, mail, telephone, civilite, adresse, data;
 let suivantButton = document.querySelector('button');
 let alertBox = document.getElementById('alertFaild');
+let bankData = JSON.parse(localStorage.getItem('YCD_Bank'))||[];
+let mails = [];
+bankData.forEach(user => {
+    mails.push(user.mail);
+});;
 
 function getPrenom(){
     let data = document.getElementById('prenom');
@@ -29,8 +34,9 @@ function getMail(){
     if(!data) throw new Error('inexistant');
     if(data.value=='') throw new Error('veuillez remplir tous les champs');
 
-    let re = /^[^\.\s@][^\s@]+@[a-z0-9\-_]+\.[a-z]{2,3}$/i;
+let re = /^[^\.\s@][^\s@]+@[a-z0-9\-_]+\.[a-z]{2,3}$/i;
     if(!re.test(data.value)) throw new Error('veuillez respecter la syntaxe');
+    if(mails.includes(data.value)) throw new Error('mail déjà éxistant.');
 
     return data.value;
 }
@@ -82,7 +88,7 @@ suivantButton.addEventListener("click", () => {
         a.href = '../html/confirmation.html';
         a.click();
     }catch(erreur){
-        if(erreur.message == 'veuillez remplir tous les champs' || erreur.message == 'veuillez respecter la syntaxe'){
+        if(erreur.message == 'veuillez remplir tous les champs' || erreur.message == 'veuillez respecter la syntaxe' || erreur.message == 'mail déjà éxistant.'){
             alertBox.innerText = erreur.message;
             alertBox.classList.remove('hidden');
 

@@ -59,7 +59,7 @@ suivantButton.addEventListener("click", ()=>{
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = "code de confirmation.txt"; 
+        a.download = "code de confirmation.txt";
         a.click();
         URL.revokeObjectURL(url);
 
