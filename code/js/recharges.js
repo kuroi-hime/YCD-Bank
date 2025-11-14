@@ -9,6 +9,17 @@ const selectmontant = document.getElementById('montant');
 const recharges = [];
 let montants;
 const alertFaild = document.getElementById('alertFaild');
+let menuIcon = document.getElementById("menu-icon");
+let navbar = document.getElementById("menu");
+let btnDeconnecter = document.getElementById("deconnecter");
+
+btnDeconnecter.addEventListener('click', ()=>{if(confirm("Voulez-vous vraiment vous déconnecter?")){
+    let a = document.createElement('a');
+    a.href = 'connexion.html';
+    a.click();
+    localStorage.removeItem('currentUser');
+}});
+menuIcon.addEventListener('click', ()=>{navbar.classList.toggle('hidden')});
 
 operateur.addEventListener('change', ()=>{
     logo.src = `../../media/${operateur.value}_logo.png`;
