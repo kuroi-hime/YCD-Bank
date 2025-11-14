@@ -67,3 +67,63 @@ buttonbloquer2.addEventListener("click",function(){
 })
 
 oui.addEventListener("click",blockcard);
+
+cardcontainer1=document.getElementById("cardcontainer1");
+cardcontainer2=document.getElementById("cardcontainer2");
+buttondetails1=document.getElementById("buttondetails1");
+buttondetails2=document.getElementById("buttondetails2");
+card1details=document.querySelectorAll(".card1details");
+leftarrowbutton=document.getElementById("leftarrow");
+leftarrowicon=document.getElementById("leftarrowicon");
+mescartes=document.getElementById("mescartes");
+plafonds=document.getElementById("plafonds");
+
+buttondetails1.addEventListener("click",function(){
+    cardcontainer2.classList.add("hidden");
+    buttonbloquer1.classList.add("hidden");
+    buttondetails1.classList.add("hidden");
+    plafonds.classList.remove("hidden");
+    card1details.forEach(element => {
+        element.classList.remove("hidden");
+    });
+    leftarrowbutton.classList.remove("hidden");
+
+    mescartes.textContent="Card Détails";
+})
+
+buttondetails2.addEventListener("click",function(){
+    cardcontainer1.classList.add("hidden");
+    buttonbloquer2.classList.add("hidden");
+    buttondetails2.classList.add("hidden");
+    plafonds.classList.remove("hidden");
+    card1details.forEach(element => {
+        element.classList.remove("hidden");
+    });
+    leftarrowbutton.classList.remove("hidden");
+    mescartes.textContent="Card Détails";
+})
+
+
+leftarrowbutton.addEventListener("click",function(){
+    cardcontainer2.classList.remove("hidden");
+    buttonbloquer1.classList.remove("hidden");
+    buttondetails1.classList.remove("hidden");
+    cardcontainer1.classList.remove("hidden");
+    buttonbloquer2.classList.remove("hidden");
+    buttondetails2.classList.remove("hidden")
+    card1details.forEach(element => {
+        element.classList.add("hidden");
+    });
+    leftarrowbutton.classList.remove("hidden");
+    mescartes.textContent="Mes Cartes";
+
+})
+
+ const slider = document.getElementById("dailyLimit");
+  const output = document.getElementById("dailyValue");
+
+  slider.addEventListener("input", () => {
+    output.textContent = slider.value;
+  });
+
+
